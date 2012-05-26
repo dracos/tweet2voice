@@ -24,15 +24,20 @@ class Listener ( tweepy.StreamListener ):
 # We need the IDs of the given Twitter user names
 # We can also then check if any are protected accounts
 users = sys.argv[1:]
+if not users:
+    raise Exception, "You need to specify at least one username"
+
 users = api.lookup_users( screen_names=users )
 user_ids = [ user.id for user in users ]
 users_protected = [ user for user in users if user.protected ]
 if users_protected:
     if not CONSUMER_KEY:
         raise Exception, "You need to use OAuth if you want this to work on a protected account"
+    print >>sys.stderr, "Using oauth"
     auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
     auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 else:
+    print >>sys.stderr, "Using basic auth"
     auth = tweepy.BasicAuthHandler(USERNAME, PASSWORD)
 
 listener = Listener()
