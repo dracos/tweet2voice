@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import os
+import subprocess
 import tweepy
 from config import *
 
@@ -12,7 +12,7 @@ class Listener ( tweepy.StreamListener ):
   def on_status( self, status ):
     print status.author.screen_name, status.text
     if status.author.screen_name == PERSON_OF_INTEREST:
-        os.system('say "' + status.text.replace('"', r'\"') + '"')
+        subprocess.call( [ 'say', status.text ] )
     return True
 
 listener = Listener()
