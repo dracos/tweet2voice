@@ -1,1 +1,1 @@
--e git+https://github.com/swinton/tweepy#egg=tweepy
+-e git+https://github.com/dracos/tweepy#egg=tweepy

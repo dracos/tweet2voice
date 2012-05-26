@@ -1,4 +1,13 @@
+# The screen names of the people you're interested in
+PEOPLE_OF_INTEREST = [ "dracos", "theatricalia" ]
+
+# Your Twitter username and password - easy way, works if everyone above is public
 USERNAME = ""
 PASSWORD = ""
 
-PEOPLE_OF_INTEREST = [ "dracos", "theatricalia" ]
+# Your Twitter OAuth details - needed if someone above is private (and then you
+# must be following that person). Username/password not needed if these are set.
+CONSUMER_KEY = ""
+CONSUMER_SECRET = ""
+ACCESS_TOKEN = ""
+ACCESS_TOKEN_SECRET = ""
