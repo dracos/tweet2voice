@@ -15,5 +15,4 @@ in a virtualenv), then you can just run:
 
 $ python -u tweet2voice.py
 
-PyPi's version of tweepy is working okay, but latest on github appears to have
-a bug in its streaming support (a number of issues/pull requests give fixes).
+I'm using a fork of tweepy that fixes a streaming bug in it.
