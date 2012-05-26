@@ -1,4 +1,4 @@
 USERNAME = ""
 PASSWORD = ""
 
-PERSON_OF_INTEREST = "dracos"
+PEOPLE_OF_INTEREST = [ "dracos", "theatricalia" ]
