@@ -4,8 +4,7 @@ import subprocess
 import tweepy
 from config import *
 
-auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+auth = tweepy.BasicAuthHandler(USERNAME, PASSWORD)
 api = tweepy.API(auth)
 
 class Listener ( tweepy.StreamListener ):
@@ -23,5 +22,7 @@ class Listener ( tweepy.StreamListener ):
 
 listener = Listener()
 stream = tweepy.Stream( auth=auth, listener=listener )
-stream.userstream()
+
+user_id = api.get_user( screen_name=PERSON_OF_INTEREST ).id
+stream.filter( follow=[ user_id ] )
 
