@@ -1,6 +1,3 @@
-# The screen names of the people you're interested in
-PEOPLE_OF_INTEREST = [ "dracos", "theatricalia" ]
-
 # Your Twitter username and password - easy way, works if everyone above is public
 USERNAME = ""
 PASSWORD = ""

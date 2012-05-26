@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import subprocess
+import sys
 import tweepy
 from config import *
 
@@ -22,7 +23,8 @@ class Listener ( tweepy.StreamListener ):
 
 # We need the IDs of the given Twitter user names
 # We can also then check if any are protected accounts
-users = api.lookup_users( screen_names=PEOPLE_OF_INTEREST )
+users = sys.argv[1:]
+users = api.lookup_users( screen_names=users )
 user_ids = [ user.id for user in users ]
 users_protected = [ user for user in users if user.protected ]
 if users_protected:
